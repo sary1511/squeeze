@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/sary1511/squeeze/releases/latest/download/Squeeze.dmg"><b>Download for Mac</b></a>
+  <a href="https://github.com/sary1511/squeeze/releases/latest"><b>Download for Mac</b></a>
   ·
   <a href="https://heysqueeze.site">Website</a>
   ·
@@ -28,7 +28,7 @@
 
 ### Install
 
-1. Download **Squeeze.dmg** from the [latest release](https://github.com/sary1511/squeeze/releases/latest).
+1. Download the **.dmg** from the [latest release](https://github.com/sary1511/squeeze/releases/latest).
 2. Open it and drag **Squeeze** into **Applications**.
 3. Open Squeeze once. This switches on the Finder menu.
 
@@ -47,7 +47,7 @@ cd Squeeze
 ./build.sh
 ```
 
-You get `dist/Squeeze.app` and `dist/Squeeze.dmg`. The script downloads two tools and bundles them inside the app:
+You get `dist/Squeeze.app` and `dist/Squeeze_v<version>.dmg` (the version is set at the top of `build.sh`). The script downloads two tools and bundles them inside the app:
 
 - **HandBrakeCLI**, the official build from GitHub. If the download fails, the script uses Homebrew's copy (`brew install handbrake`).
 - **FFmpeg**, a static, signed macOS build from [ffmpeg.martin-riedl.de](https://ffmpeg.martin-riedl.de). If the download fails, the app uses Homebrew's `ffmpeg` if it's installed.
@@ -159,7 +159,7 @@ Extension/
 
 1. **Fill in your details** at the top of `docs/assets/site.js`: GitHub repo, Google Form details, donation link, email and publisher name. Every link on every page reads from there.
 2. **Publish on GitHub Pages:** push the repo, then go to Settings → Pages → Deploy from a branch → `main` / `/docs`.
-3. **Release the app:** create a GitHub Release and attach the DMG as `Squeeze.dmg`. The Download buttons always point to `releases/latest/download/Squeeze.dmg`, so they pick up new versions automatically.
+3. **Release the app:** create a GitHub Release (tag `v1.0.1`, etc.) and attach the DMG that `build.sh` made, e.g. `Squeeze_v1.0.1.dmg`. The Download buttons ask GitHub for the latest release and link to whatever `.dmg` it contains, so the file name can include the version.
 4. **Contact form** (Google Forms): see below.
 
 ### Contact form

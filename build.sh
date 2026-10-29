@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds Squeeze.app and Squeeze.dmg into ./dist
+# Builds Squeeze.app and Squeeze_v<version>.dmg into ./dist
 # Needs: macOS 26 (Tahoe) + Xcode 26 (or its Command Line Tools).
 set -euo pipefail
 
@@ -228,17 +228,19 @@ codesign --force --sign - --entitlements "$EXT_ENTITLEMENTS" "$APPEX"
 codesign --force --sign - "$APP"
 
 # ---------------------------------------------------------------- dmg
-say "Creating $APP_NAME.dmg"
+DMG="$DIST/${APP_NAME}_v${VERSION}.dmg"
+say "Creating $(basename "$DMG")"
 STAGE="$(mktemp -d)"
 cp -R "$APP" "$STAGE/"
 ln -s /Applications "$STAGE/Applications"
-rm -f "$DIST/$APP_NAME.dmg"
-hdiutil create -quiet -volname "$APP_NAME" -srcfolder "$STAGE" -ov -format UDZO "$DIST/$APP_NAME.dmg"
+rm -f "$DMG"
+hdiutil create -quiet -volname "$APP_NAME" -srcfolder "$STAGE" -ov -format UDZO "$DMG"
 rm -rf "$STAGE"
 
 say "Done"
 echo "App: $APP"
-echo "DMG: $DIST/$APP_NAME.dmg"
+echo "DMG: $DMG"
+echo "Upload this DMG to a new GitHub release tagged v$VERSION. The website's Download button finds it automatically."
 echo "Finder extension: drag Squeeze to Applications and open it once. Then right-click any video → Squeeze."
 [[ $HAVE_HB -eq 1 ]] || warn "Built without HandBrakeCLI — only the Apple engine will work until you install it."
 [[ $HAVE_FF -eq 1 ]] || warn "Built without FFmpeg — AVI, WMV, FLV, TS, 3GP, OGV, WebP, MP3, WAV, FLAC and 'Keep original codecs' need it."

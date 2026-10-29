@@ -5,7 +5,6 @@
 ------------------------------------------------------------------- */
 window.SQUEEZE = {
   githubRepo: "sary1511/squeeze",   // owner/repo on GitHub
-  dmgName: "Squeeze.dmg",                       // asset name attached to each GitHub Release
   version: "1.0.1",
   // Contact form → your Google Form (answers land in Google Forms / Sheets, with email alerts).
   // See README → "Contact form" for where to find these values.
@@ -28,7 +27,8 @@ window.SQUEEZE = {
   const repo = `https://github.com/${c.githubRepo}`;
   const links = {
     // GitHub always serves the newest release at this address.
-    download: `${repo}/releases/latest/download/${c.dmgName}`,
+    // Until GitHub answers (or if it can't), Download opens the latest release page.
+    download: `${repo}/releases/latest`,
     github: repo,
     releases: `${repo}/releases`,
     issues: `${repo}/issues/new/choose`,
@@ -46,6 +46,31 @@ window.SQUEEZE = {
     const value = c[el.dataset.text];
     if (value) el.textContent = value;
   });
+  // Point every Download button straight at the .dmg in the newest release,
+  // whatever it's called (e.g. Squeeze_v1.0.1.dmg), and show its version.
+  (async () => {
+    const key = `squeeze-latest:${c.githubRepo}`;
+    let info = null;
+    try { info = JSON.parse(sessionStorage.getItem(key) || "null"); } catch {}
+    if (!info) {
+      try {
+        const res = await fetch(`https://api.github.com/repos/${c.githubRepo}/releases/latest`, {
+          headers: { Accept: "application/vnd.github+json" },
+        });
+        if (!res.ok) return;
+        const release = await res.json();
+        const dmg = (release.assets || []).find((a) => /\.dmg$/i.test(a.name));
+        info = {
+          url: dmg ? dmg.browser_download_url : release.html_url,
+          version: (release.tag_name || "").replace(/^v/i, ""),
+        };
+        try { sessionStorage.setItem(key, JSON.stringify(info)); } catch {}
+      } catch { return; }
+    }
+    document.querySelectorAll('[data-link="download"]').forEach((el) => el.setAttribute("href", info.url));
+    if (info.version) document.querySelectorAll('[data-text="version"]').forEach((el) => (el.textContent = info.version));
+  })();
+
   document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 
   // Header gets a glass background once the page scrolls.
