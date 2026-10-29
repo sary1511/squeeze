@@ -4,7 +4,7 @@
    is filled in from here, so you only change them once.
 ------------------------------------------------------------------- */
 window.SQUEEZE = {
-  githubRepo: "raut1511/squeeze",   // owner/repo on GitHub
+  githubRepo: "sary1511/squeeze",   // owner/repo on GitHub
   dmgName: "Squeeze.dmg",                       // asset name attached to each GitHub Release
   version: "1.0.0",
   // Contact form → your Google Form (answers land in Google Forms / Sheets, with email alerts).
