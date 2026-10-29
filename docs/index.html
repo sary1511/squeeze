@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Squeeze: compress and convert videos on your Mac</title>
+  <meta name="description" content="Squeeze is a simple macOS app that compresses and converts any video. HandBrake-quality compression, 23 output formats and a Finder right-click menu.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Squeeze: compress and convert videos on your Mac">
+  <meta property="og:description" content="HandBrake-quality compression, 23 output formats and a Finder right-click menu. All on your Mac.">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" as="image" href="assets/img/squeeze-hero.jpg">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-5-5m5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-compress" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7"/></symbol>
+    <symbol id="i-convert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></symbol>
+    <symbol id="i-stack" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M6 4h12M8 1.5h8"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9Z"/><circle cx="8" cy="8" r="1.5"/></symbol>
+    <symbol id="i-menubar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M14 6.5h4"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <nav class="nav wrap" aria-label="Main">
+    <a class="brand" href="#top"><img src="assets/icon-512.png" alt="" width="28" height="28">squeeze</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#formats">Formats</a>
+      <a href="#finder">Finder</a>
+      <a href="#faq">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-end">
+      <a class="text-link" data-link="github" href="#">GitHub</a>
+      <a class="btn btn-primary btn-small" data-link="download" href="#download">Download</a>
+    </div>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="badge"><i></i>Free for macOS 26 Tahoe · Apple Silicon</div>
+      <span class="eyebrow">A video tool that stays out of your way</span>
+      <h1>Every video,<br>perfectly squeezed.</h1>
+      <p class="lead">Squeeze compresses and converts any footage on your Mac. Drop files in, press one button and get HandBrake-quality results. Or just right-click in Finder.</p>
+      <div class="btn-row" id="download">
+        <a class="btn btn-primary" data-link="download" href="#">Download for Mac <span class="dot"><svg><use href="#i-arrow"/></svg></span></a>
+        <a class="btn btn-outline" data-link="github" href="#"><svg><use href="#i-github"/></svg>View source</a>
+      </div>
+      <p class="hero-meta">Version <span data-text="version">1.0.0</span> · HandBrake and FFmpeg built in</p>
+
+      <div class="hero-card reveal" role="img" aria-label="A filmmaker holding a camera in a field at golden hour">
+        <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-hero.jpg" aria-hidden="true"><source src="assets/video/squeeze-hero.mp4" type="video/mp4"></video>
+        <div class="stat tl"><b>−85%</b><span>Typical file size saved on phone and camera footage</span></div>
+
+        <div class="app-card" aria-hidden="true">
+          <div class="file">
+            <div class="thumb"></div>
+            <div>
+              <div class="name">Golden hour – A-cam.mov</div>
+              <div class="meta">4.2 GB → 612 MB <b>· −85%</b></div>
+            </div>
+          </div>
+          <div class="bar"><i></i></div>
+          <div class="row">
+            <span class="chipbtn on">Compress</span>
+            <span class="chipbtn">Convert</span>
+            <span class="chipbtn">H.265</span>
+            <span class="go"><svg><use href="#i-up"/></svg></span>
+          </div>
+        </div>
+
+        <div class="stat br"><b>23 formats</b><span>In and out, from ProRes to GIF</span></div>
+        <div class="notch" aria-hidden="true"><span>MP4</span><span>MOV</span><span>MKV</span><span>ProRes</span><span>WebM</span><span>GIF</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Statement ============ -->
+  <section class="statement">
+    <div class="wrap reveal">
+      <p>Squeeze makes the footage you shot fit <em>wherever it needs to go:</em> smaller files, any format, <em>without touching</em> resolution, frame rate or a single setting you didn't ask for.</p>
+    </div>
+  </section>
+
+  <!-- ============ Compress / Convert ============ -->
+  <section id="features" style="padding-top:0">
+    <div class="wrap">
+      <div class="duo">
+        <article class="photo-card reveal">
+          <video class="bg" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-river.jpg" aria-hidden="true"><source src="assets/video/squeeze-river.mp4" type="video/mp4"></video>
+          <span class="kicker">01 · Compress</span>
+          <h3>Same footage.<br>A fraction of the size.</h3>
+          <p>Uses HandBrake's own default quality, minus the things you didn't ask for: no 1080p cap, no 30 fps cap and no cropping.</p>
+          <ul><li>H.264 or H.265</li><li>Apple Silicon hardware</li><li>Original resolution</li></ul>
+        </article>
+        <article class="photo-card reveal">
+          <video class="bg" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-film.jpg" aria-hidden="true"><source src="assets/video/squeeze-film.mp4" type="video/mp4"></video>
+          <span class="kicker">02 · Convert</span>
+          <h3>Any file in.<br>The right file out.</h3>
+          <p>23 formats, from MP4 and ProRes to GIF and MP3. Squeeze sends each job to the best engine automatically.</p>
+          <ul><li>MP4 · MKV · WebM · MOV</li><li>GIF &amp; WebP</li><li>MP3 · WAV · FLAC</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Compress specs ============ -->
+  <section id="compress" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Compress</span>
+        <h2>HandBrake quality.<br>None of the knobs.</h2>
+        <p class="lead">Pick an engine and a codec, or don't. The defaults are what most people end up choosing anyway.</p>
+      </div>
+      <div class="spec-list reveal">
+        <div class="spec-row"><b>HandBrake · H.264</b><span>x264, RF 22, AAC 160 kbps: HandBrake's own default preset</span><small>Plays everywhere</small></div>
+        <div class="spec-row"><b>HandBrake · H.265</b><span>x265 10-bit at the same quality level</span><small>About half the size</small></div>
+        <div class="spec-row"><b>Hardware encoding</b><span>Apple VideoToolbox H.264 / H.265 on the media engine</span><small>Several times faster</small></div>
+        <div class="spec-row"><b>Apple engine</b><span>Native AVFoundation, no extra components</span><small>Fast and lightweight</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Formats ============ -->
+  <section id="formats" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Convert</span>
+        <h2>23 formats. One menu.</h2>
+      </div>
+      <div class="formats reveal">
+        <div class="format-col"><h3>MP4 · MKV</h3><ul><li>MP4 <small>H.264</small></li><li>MP4 <small>H.265</small></li><li>MP4 <small>AV1</small></li><li>MKV <small>H.264</small></li><li>MKV <small>H.265</small></li></ul></div>
+        <div class="format-col"><h3>Web &amp; Pro</h3><ul><li>WebM <small>VP9</small></li><li>WebM <small>AV1</small></li><li>MOV <small>H.264</small></li><li>MOV <small>HEVC</small></li><li>ProRes <small>422</small></li></ul></div>
+        <div class="format-col"><h3>Animated</h3><ul><li>GIF</li><li>WebP <small>animated</small></li></ul></div>
+        <div class="format-col"><h3>More video</h3><ul><li>AVI</li><li>WMV</li><li>FLV</li><li>MPEG-TS</li><li>3GP · OGV · M4V</li></ul></div>
+        <div class="format-col"><h3>Audio only</h3><ul><li>M4A</li><li>MP3</li><li>WAV</li><li>FLAC</li></ul></div>
+      </div>
+      <div class="note reveal">
+        <div class="ic"><svg><use href="#i-copy"/></svg></div>
+        <p><b>Keep original codecs.</b> Need that MKV as an MP4? Squeeze can change only the container, without re-encoding. There's no quality loss, and it takes seconds instead of minutes. If the codecs don't fit, it converts the file properly instead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Finder ============ -->
+  <section id="finder" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
+        <div>
+          <span class="eyebrow">Finder extension</span>
+          <h2>Right-click.<br>That's it.</h2>
+        </div>
+        <p class="lead" style="margin:0;max-width:44ch">Every Squeeze action lives in Finder's right-click menu. Choose one and keep working. Squeeze runs quietly in the background and saves next to the original.</p>
+      </div>
+
+      <div class="showcase reveal" aria-hidden="true">
+        <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-wave.jpg" aria-hidden="true"><source src="assets/video/squeeze-wave.mp4" type="video/mp4"></video>
+        <span class="kicker"><img src="assets/icon-512.png" alt="">Squeeze for Finder</span>
+        <div class="menus">
+          <div class="ctx ctx-1">
+            <div>Open</div><div>Get Info</div><div>Rename</div><div class="sep"></div>
+            <div>Quick Look</div><div>Copy</div><div class="sep"></div>
+            <div class="hl"><svg><use href="#i-stack"/></svg>Squeeze<span class="arr">›</span></div>
+            <div class="dim">Quick Actions<span class="arr">›</span></div>
+          </div>
+          <div class="ctx ctx-2">
+            <div><svg><use href="#i-compress"/></svg>Compress</div>
+            <div><svg><use href="#i-gear"/></svg>Compress With<span class="arr">›</span></div>
+            <div class="sep"></div>
+            <div class="hl"><svg><use href="#i-convert"/></svg>Convert To<span class="arr">›</span></div>
+            <div><svg><use href="#i-copy"/></svg>Change Container Only<span class="arr">›</span></div>
+            <div class="sep"></div>
+            <div><svg><use href="#i-menubar"/></svg>Open in Squeeze</div>
+          </div>
+          <div class="ctx ctx-3">
+            <div>MP4 · H.264</div><div>MP4 · H.265</div><div>MOV · ProRes 422</div><div class="sep"></div>
+            <div class="hl">GIF</div><div>WebP · Animated</div><div class="sep"></div>
+            <div>MP3</div><div class="dim">and 17 more…</div>
+          </div>
+        </div>
+        <div class="toast">
+          <img src="assets/icon-512.png" alt="">
+          <div><b>Done: Surf session.mov</b><span>Saved as Surf session.gif · 1.2 GB → 9 MB</span></div>
+        </div>
+      </div>
+
+      <div class="finder-points reveal">
+        <div><b>No window, no Dock icon</b><span>Progress shows in the menu bar. Squeeze quits when it's done.</span></div>
+        <div><b>Saved where it belongs</b><span>Next to the original as <code>name_compressed.mp4</code>, or anywhere you choose.</span></div>
+        <div><b>You decide how it behaves</b><span>Background or window, names, location and notifications, all in Settings.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Small features ============ -->
+  <section id="details" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Made for macOS</span>
+        <h2>Small things,<br>done properly.</h2>
+      </div>
+      <div class="mini-grid reveal">
+        <div class="mini"><svg><use href="#i-stack"/></svg><h3>A real queue</h3><p>Drop in dozens of files or whole folders. Compress and Convert each have a queue and can run at the same time.</p></div>
+        <div class="mini"><svg><use href="#i-tag"/></svg><h3>Your naming</h3><p>Prefixes, suffixes and a save location you choose. It never overwrites a file; it adds a number instead.</p></div>
+        <div class="mini"><svg><use href="#i-menubar"/></svg><h3>Menu bar progress</h3><p>See every file at a glance, stop everything or open the app, right from the menu bar.</p></div>
+        <div class="mini"><svg><use href="#i-bell"/></svg><h3>Notifications</h3><p>A note when each file is done, showing how much space you saved. Click it to find the file.</p></div>
+        <div class="mini"><svg><use href="#i-gear"/></svg><h3>Liquid Glass</h3><p>A native SwiftUI app with full keyboard shortcuts: <kbd>⌘O</kbd> to add and <kbd>⌘↩</kbd> to start.</p></div>
+        <div class="mini"><svg><use href="#i-lock"/></svg><h3>Private by design</h3><p>Everything happens on your Mac. No uploads, accounts, analytics or tracking, and it works offline.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Engines ============ -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="engines-strip reveal">
+        <span class="label">Powered by</span>
+        <span class="wm">HandBrake<small>compression</small></span>
+        <span class="wm">FFmpeg<small>every format</small></span>
+        <span class="wm">Apple Media Engine<small>hardware &amp; ProRes</small></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Install ============ -->
+  <section id="install" style="padding-top:0">
+    <div class="wrap split">
+      <div class="split-img reveal" role="img" aria-label="Strips of film negatives on a light table"><video class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-film.jpg" aria-hidden="true"><source src="assets/video/squeeze-film.mp4" type="video/mp4"></video></div>
+      <div class="reveal">
+        <span class="eyebrow">Get started</span>
+        <h2>Up and running<br>in a minute.</h2>
+        <p class="lead">No installers, no plugins and nothing else to download. HandBrake and FFmpeg are already inside the app.</p>
+        <ul class="checks">
+          <li><b>Download</b> <code>Squeeze.dmg</code> from the button above or the <a data-link="releases" href="#">releases page</a>.</li>
+          <li><b>Drag</b> Squeeze into your Applications folder.</li>
+          <li><b>Open it once.</b> The Finder menu switches on automatically.</li>
+        </ul>
+        <p class="muted" style="margin-top:18px;font-size:14px">Requires macOS 26 Tahoe on a Mac with Apple Silicon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" style="padding-top:0">
+    <div class="narrow">
+      <div class="section-head reveal center"><span class="eyebrow">FAQ</span><h2>Questions</h2></div>
+      <div class="faq reveal">
+        <details><summary>Is Squeeze really free?</summary><p>Yes. There's no trial, account or watermark.</p></details>
+        <details><summary>How much smaller will my videos get?</summary><p>It depends on the source. Phone and camera footage often shrinks by 60–90%. Videos that are already heavily compressed shrink less. H.265 usually gives files about half the size of H.264 at the same quality.</p></details>
+        <details><summary>Will it lower the quality?</summary><p>Compression always trades a little quality for size. Squeeze uses HandBrake's default quality level, which most people can't tell apart from the original at normal viewing sizes. It never changes the resolution or frame rate. For a perfect copy, convert with "Keep original codecs", which doesn't re-encode at all.</p></details>
+        <details><summary>Does it work on Intel Macs or older macOS versions?</summary><p>Squeeze needs macOS 26 Tahoe and is built for Apple Silicon (M1 and newer), so it can use the latest SwiftUI and Liquid Glass design.</p></details>
+        <details><summary>The Finder menu doesn't appear. What do I do?</summary><p>Open Squeeze once from Applications. Then check System Settings → General → Login Items &amp; Extensions → Finder and make sure Squeeze is on. If it's on but still missing, relaunch Finder: hold Option, right-click the Finder icon in the Dock and choose Relaunch.</p></details>
+        <details><summary>Is Squeeze affiliated with HandBrake or FFmpeg?</summary><p>No. Squeeze is an independent app that includes the open-source HandBrakeCLI and FFmpeg under their GPL licences. All credit for those engines goes to their developers.</p></details>
+        <details><summary>Can I see the source code?</summary><p>Yes. The full source is on <a data-link="github" href="#">GitHub</a>, including the build script that produces the DMG. Bug reports and ideas are welcome there.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section id="support" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-card reveal">
+        <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-dunes.jpg" aria-hidden="true"><source src="assets/video/squeeze-dunes.mp4" type="video/mp4"></video>
+        <div>
+          <span class="eyebrow">Free and open source</span>
+          <h2>Give your footage some room to breathe.</h2>
+          <p class="lead">Free for macOS 26 on Apple Silicon. No account, no watermark, no limits.</p>
+          <div class="btn-row" style="justify-content:center">
+            <a class="btn btn-primary" data-link="download" href="#">Download for Mac <span class="dot"><svg><use href="#i-arrow"/></svg></span></a>
+          </div>
+        </div>
+        <div class="cta-bar">
+          <img src="assets/icon-512.png" alt="">
+          <p><b>Made by one independent developer.</b><span>The full source is on GitHub. Ideas and bug reports are welcome.</span></p>
+          <a class="btn btn-light btn-small" data-link="github" href="#" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="#top"><img src="assets/icon-512.png" alt="" width="24" height="24">squeeze</a>
+      <p>© <span data-year>2026</span> <span data-text="publisher">Sarthak</span>. Squeeze includes HandBrakeCLI and FFmpeg, distributed under the GNU GPL. Not affiliated with the HandBrake or FFmpeg projects. Mac and macOS are trademarks of Apple Inc.</p>
+    </div>
+    <div class="footer-links">
+      <a data-link="download" href="#">Download</a>
+      <a data-link="github" href="#">GitHub</a>
+      <a data-link="issues" href="#">Report a bug</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
