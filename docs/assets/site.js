@@ -6,7 +6,7 @@
 window.SQUEEZE = {
   githubRepo: "sary1511/squeeze",   // owner/repo on GitHub
   dmgName: "Squeeze.dmg",                       // asset name attached to each GitHub Release
-  version: "1.0.0",
+  version: "1.0.1",
   // Contact form → your Google Form (answers land in Google Forms / Sheets, with email alerts).
   // See README → "Contact form" for where to find these values.
   googleForm: {

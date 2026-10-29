@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 ROOT="$(pwd)"
 APP_NAME="Squeeze"
 BUNDLE_ID="com.vyeola.squeeze"
-VERSION="1.0.0"
+VERSION="1.0.1"
 DIST="$ROOT/dist"
 APP="$DIST/$APP_NAME.app"
 VENDOR="$ROOT/vendor"
@@ -153,7 +153,7 @@ cat > "$APPEX/Contents/Info.plist" <<PLIST
   <key>CFBundleDisplayName</key><string>Squeeze</string>
   <key>CFBundlePackageType</key><string>XPC!</string>
   <key>CFBundleShortVersionString</key><string>$VERSION</string>
-  <key>CFBundleVersion</key><string>1</string>
+  <key>CFBundleVersion</key><string>2</string>
   <key>LSMinimumSystemVersion</key><string>26.0</string>
   <key>NSHumanReadableDescription</key><string>Compress and convert videos from Finder's right-click menu.</string>
   <key>NSExtension</key>
@@ -187,7 +187,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>CFBundleIconFile</key><string>AppIcon</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleShortVersionString</key><string>$VERSION</string>
-  <key>CFBundleVersion</key><string>1</string>
+  <key>CFBundleVersion</key><string>2</string>
   <key>LSMinimumSystemVersion</key><string>26.0</string>
   <key>LSApplicationCategoryType</key><string>public.app-category.video</string>
   <key>NSHighResolutionCapable</key><true/>
