@@ -1,6 +1,42 @@
-# Squeeze
+<p align="center">
+  <img src="docs/assets/icon-512.png" width="128" alt="Squeeze icon">
+</p>
 
-Simple video compression and conversion for macOS 26 (Tahoe), with a Liquid Glass interface. Compress turns any video into a smaller MP4 at the same size and frame rate, with no cropping. Convert turns any video into MP4, MKV, WebM, MOV, ProRes, AVI, WMV, FLV, MPEG-TS, 3GP, OGV, GIF, animated WebP, M4A, MP3, WAV or FLAC.
+<h1 align="center">squeeze</h1>
+
+<p align="center">
+  Compress and convert any video on your Mac.<br>
+  HandBrake-quality results, 23 formats, and a Finder right-click menu.
+</p>
+
+<p align="center">
+  <a href="https://github.com/sary1511/squeeze/releases/latest/download/Squeeze.dmg"><b>Download for Mac</b></a>
+  ·
+  <a href="https://heysqueeze.site">Website</a>
+  ·
+  <a href="https://github.com/sary1511/squeeze/issues">Report a bug</a>
+</p>
+
+## What it does
+
+- **Compress:** any video in, a much smaller MP4 out, using HandBrake's own default quality. It keeps the original resolution and frame rate, never crops, and offers H.264, H.265 and Apple Silicon hardware encoding.
+- **Convert:** 23 formats, including MP4, MKV, WebM, MOV, ProRes, AVI, WMV, GIF, animated WebP, MP3, WAV and FLAC. **Keep original codecs** changes only the container, in seconds and with no quality loss.
+- **Finder:** right-click any video and choose **Squeeze** → Compress, Convert To or Change Container Only. It runs in the background, saves next to the original and notifies you when it's done.
+- **Private:** everything happens on your Mac. No uploads, accounts or tracking.
+
+**Requires** macOS 26 Tahoe on Apple Silicon (M1 or newer).
+
+### Install
+
+1. Download **Squeeze.dmg** from the [latest release](https://github.com/sary1511/squeeze/releases/latest).
+2. Open it and drag **Squeeze** into **Applications**.
+3. Open Squeeze once. This switches on the Finder menu.
+
+If macOS says it can't verify Squeeze, go to **System Settings → Privacy & Security** and click **Open Anyway**.
+
+---
+
+# For developers
 
 ## Build
 
@@ -136,6 +172,6 @@ The form on `contact.html` keeps the site's own design and sends each message to
 3. In `docs/assets/site.js`, set `googleForm.id` to the part between `/d/e/` and `/viewform`, and the four `fields` to the `entry.…` numbers in the same order (name, email, topic, message).
 4. To get an email for every message: open the form's **Responses** tab → **⋮ → Get email notifications for new responses**. Click **Link to Sheets** to collect them in a spreadsheet.
 
-## Licence note
+## Licence
 
-HandBrakeCLI and this FFmpeg build (which includes x264 and x265) are both GPL. Using them yourself or inside your team is fine. If you distribute Squeeze with them bundled, the GPL applies to that distribution. Apple's frameworks have no such restriction.
+Squeeze is free software under the [GNU General Public License v2 or later](LICENSE). It bundles HandBrakeCLI and FFmpeg, which are also GPL-licensed. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Squeeze is not affiliated with the HandBrake or FFmpeg projects.
