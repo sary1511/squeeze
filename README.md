@@ -153,25 +153,6 @@ Extension/
   FinderSync.swift      Finder right-click menu (sandboxed app extension)
 ```
 
-## Website
-
-`docs/` is a ready-to-publish static website: a one-page overview plus contact, terms and privacy pages. It's plain HTML, CSS and JS, with no build step.
-
-1. **Fill in your details** at the top of `docs/assets/site.js`: GitHub repo, Google Form details, donation link, email and publisher name. Every link on every page reads from there.
-2. **Publish on GitHub Pages:** push the repo, then go to Settings → Pages → Deploy from a branch → `main` / `/docs`.
-3. **Release the app:** create a GitHub Release (tag `v1.0.1`, etc.) and attach the DMG that `build.sh` made, e.g. `Squeeze_v1.0.1.dmg`. The Download buttons ask GitHub for the latest release and link to whatever `.dmg` it contains, so the file name can include the version.
-4. **Contact form** (Google Forms): see below.
-
-### Contact form
-
-The form on `contact.html` keeps the site's own design and sends each message to a Google Form you own.
-
-1. Create a form at forms.google.com with four questions, in this order: **Name** (Short answer), **Email** (Short answer), **Topic** (Short answer), **Message** (Paragraph). In Settings, turn off "Collect email addresses" and "Restrict to users in…" so anyone can respond.
-2. Click **⋮ → Get pre-filled link**, type `a`, `b`, `c`, `d` into the four answers, click **Get link** and copy it. It looks like
-   `https://docs.google.com/forms/d/e/1FAIpQL…/viewform?usp=pp_url&entry.123=a&entry.456=b&entry.789=c&entry.321=d`
-3. In `docs/assets/site.js`, set `googleForm.id` to the part between `/d/e/` and `/viewform`, and the four `fields` to the `entry.…` numbers in the same order (name, email, topic, message).
-4. To get an email for every message: open the form's **Responses** tab → **⋮ → Get email notifications for new responses**. Click **Link to Sheets** to collect them in a spreadsheet.
-
 ## Licence
 
 Squeeze is free software under the [GNU General Public License v2 or later](LICENSE). It bundles HandBrakeCLI and FFmpeg, which are also GPL-licensed. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Squeeze is not affiliated with the HandBrake or FFmpeg projects.

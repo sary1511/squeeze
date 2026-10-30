@@ -7,7 +7,6 @@ window.SQUEEZE = {
   githubRepo: "sary1511/squeeze",   // owner/repo on GitHub
   version: "1.0.1",
   // Contact form → your Google Form (answers land in Google Forms / Sheets, with email alerts).
-  // See README → "Contact form" for where to find these values.
   googleForm: {
     id: "1FAIpQLScmj8xxy6K9yfHe-Butb9-ITxBzd1NVE1-kusHGXxH_93hKgQ",                  // the long code between /d/e/ and /viewform
     fields: {
