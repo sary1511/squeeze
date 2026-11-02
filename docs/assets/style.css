@@ -405,3 +405,20 @@ video.bg { width: 100%; height: 100%; object-fit: cover; }
 .showcase > .menus, .showcase > .toast { position: absolute; }
 .cta-card > .cta-bar { position: absolute; z-index: 2; }
 .split-img, .side-photo { position: relative; overflow: hidden; }
+
+/* Cookie choice banner */
+.consent {
+  position: fixed; z-index: 100; left: 16px; right: 16px; bottom: 16px;
+  max-width: 560px; margin-left: auto;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 16px 16px 16px 20px;
+  background: rgba(255, 255, 255, .86);
+  -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  box-shadow: 0 20px 50px -20px rgba(0, 0, 0, .3);
+  font: 14px/1.45 var(--body); color: var(--ink-2);
+}
+.consent p { margin: 0; flex: 1 1 240px; }
+.consent a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+.consent-actions { display: flex; gap: 8px; }
+.consent .btn { height: 40px; padding: 0 18px; font-size: 14px; }
