@@ -27,10 +27,7 @@
   gtag("js", new Date());
   gtag("config", GA_ID, { anonymize_ip: true });
 
-  var s = document.createElement("script");
-  s.async = true;
-  s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
-  document.head.appendChild(s);
+  // gtag.js itself is loaded by the <script async> tag right after this file in each page.
 
   function choose(value) {
     try { localStorage.setItem(KEY, value); } catch (e) {}
