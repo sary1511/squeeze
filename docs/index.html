@@ -4,11 +4,12 @@
   <script src="assets/analytics.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Squeeze: compress and convert videos on your Mac</title>
-  <meta name="description" content="Squeeze is a simple macOS app that compresses and converts any video. HandBrake-quality compression, 23 output formats and a Finder right-click menu.">
+  <title>Squeeze: free video compressor and converter for Mac</title>
+  <meta name="description" content="Squeeze is a free, open-source Mac app that compresses and converts any video. HandBrake-quality compression, 23 formats including MP4, MKV, MOV and GIF, and a Finder right-click menu.">
   <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Squeeze: compress and convert videos on your Mac">
+  <meta property="og:title" content="Squeeze: free video compressor and converter for Mac">
+  <meta property="og:site_name" content="Squeeze">
   <meta property="og:description" content="HandBrake-quality compression, 23 output formats and a Finder right-click menu. All on your Mac.">
   <meta property="og:url" content="https://heysqueeze.site/">
   <meta property="og:image" content="https://heysqueeze.site/assets/og-image.jpg">
@@ -21,6 +22,138 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" as="image" href="assets/img/squeeze-hero.jpg">
   <link rel="stylesheet" href="assets/style.css">
+  <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Squeeze",
+    "url": "https://heysqueeze.site/",
+    "description": "Free, open-source Mac app that compresses and converts any video with HandBrake-quality results, 23 output formats and a Finder right-click menu.",
+    "applicationCategory": "MultimediaApplication",
+    "applicationSubCategory": "Video compressor and converter",
+    "operatingSystem": "macOS 26 or later (Apple Silicon)",
+    "softwareVersion": "1.0.1",
+    "license": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+    "image": "https://heysqueeze.site/assets/icon-512.png",
+    "screenshot": "https://heysqueeze.site/assets/og-image.jpg",
+    "downloadUrl": "https://github.com/sary1511/squeeze/releases/latest",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Sarthak",
+      "url": "https://github.com/sary1511"
+    },
+    "sameAs": [
+      "https://github.com/sary1511/squeeze"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I compress a video on a Mac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Drop the video into Squeeze and press Compress, or right-click it in Finder and choose Squeeze → Compress. You get a much smaller MP4 next to the original, at the same resolution and frame rate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Squeeze a good HandBrake alternative?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Squeeze uses HandBrake's own engine and default quality, so the results match. The difference is the interface: no presets or tabs of settings to learn, just one button, a queue and a Finder right-click menu. If you need HandBrake's advanced options, HandBrake itself is still the best tool."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert MKV to MP4 on a Mac?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open the Convert tab, choose MP4 and turn on \"Keep original codecs\". Squeeze moves the video into an MP4 file without re-encoding, which usually takes a few seconds and loses no quality. You can also right-click the file and choose Squeeze → Change Container Only → MP4."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I turn a video into a GIF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. In the Convert tab choose GIF, pick a width and frame rate, and Squeeze makes a looping GIF with an optimised colour palette. Animated WebP is there too, for smaller files."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Squeeze really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. There's no trial, account or watermark."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much smaller will my videos get?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the source. Phone and camera footage often shrinks by 60–90%. Videos that are already heavily compressed shrink less. H.265 usually gives files about half the size of H.264 at the same quality."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will it lower the quality?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compression always trades a little quality for size. Squeeze uses HandBrake's default quality level, which most people can't tell apart from the original at normal viewing sizes. It never changes the resolution or frame rate. For a perfect copy, convert with \"Keep original codecs\", which doesn't re-encode at all."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work on Intel Macs or older macOS versions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Squeeze needs macOS 26 Tahoe and is built for Apple Silicon (M1 and newer), so it can use the latest SwiftUI and Liquid Glass design."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "The Finder menu doesn't appear. What do I do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Open Squeeze once from Applications. Then check System Settings → General → Login Items & Extensions → Finder and make sure Squeeze is on. If it's on but still missing, relaunch Finder: hold Option, right-click the Finder icon in the Dock and choose Relaunch."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Squeeze affiliated with HandBrake or FFmpeg?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Squeeze is an independent app that includes the open-source HandBrakeCLI and FFmpeg under their GPL licences. All credit for those engines goes to their developers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I see the source code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The full source is on GitHub, including the build script that produces the DMG. Bug reports and ideas are welcome there."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Squeeze",
+    "url": "https://heysqueeze.site/"
+  }
+]
+  </script>
 </head>
 <body>
 
@@ -116,14 +249,14 @@
     <div class="wrap">
       <div class="duo">
         <article class="photo-card reveal">
-          <video class="bg" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-river.jpg" aria-hidden="true"><source src="assets/video/squeeze-river.mp4" type="video/mp4"></video>
+          <video class="bg" muted loop playsinline preload="none" data-lazy poster="assets/img/squeeze-river.jpg" aria-hidden="true"><source data-src="assets/video/squeeze-river.mp4" type="video/mp4"></video>
           <span class="kicker">01 · Compress</span>
           <h3>Same footage.<br>A fraction of the size.</h3>
           <p>Uses HandBrake's own default quality, minus the things you didn't ask for: no 1080p cap, no 30 fps cap and no cropping.</p>
           <ul><li>H.264 or H.265</li><li>Apple Silicon hardware</li><li>Original resolution</li></ul>
         </article>
         <article class="photo-card reveal">
-          <video class="bg" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-film.jpg" aria-hidden="true"><source src="assets/video/squeeze-film.mp4" type="video/mp4"></video>
+          <video class="bg" muted loop playsinline preload="none" data-lazy poster="assets/img/squeeze-film.jpg" aria-hidden="true"><source data-src="assets/video/squeeze-film.mp4" type="video/mp4"></video>
           <span class="kicker">02 · Convert</span>
           <h3>Any file in.<br>The right file out.</h3>
           <p>23 formats, from MP4 and ProRes to GIF and MP3. Squeeze sends each job to the best engine automatically.</p>
@@ -183,7 +316,7 @@
       </div>
 
       <div class="showcase reveal" aria-hidden="true">
-        <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-wave.jpg" aria-hidden="true"><source src="assets/video/squeeze-wave.mp4" type="video/mp4"></video>
+        <video class="bg-video" muted loop playsinline preload="none" data-lazy poster="assets/img/squeeze-wave.jpg" aria-hidden="true"><source data-src="assets/video/squeeze-wave.mp4" type="video/mp4"></video>
         <span class="kicker"><img src="assets/icon-512.png" alt="">Squeeze for Finder</span>
         <div class="menus">
           <div class="ctx ctx-1">
@@ -254,7 +387,7 @@
   <!-- ============ Install ============ -->
   <section id="install" style="padding-top:0">
     <div class="wrap split">
-      <div class="split-img reveal" role="img" aria-label="Strips of film negatives on a light table"><video class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-film.jpg" aria-hidden="true"><source src="assets/video/squeeze-film.mp4" type="video/mp4"></video></div>
+      <div class="split-img reveal" role="img" aria-label="Strips of film negatives on a light table"><video class="bg-video" muted loop playsinline preload="none" data-lazy poster="assets/img/squeeze-film.jpg" aria-hidden="true"><source data-src="assets/video/squeeze-film.mp4" type="video/mp4"></video></div>
       <div class="reveal">
         <span class="eyebrow">Get started</span>
         <h2>Up and running<br>in a minute.</h2>
@@ -274,6 +407,10 @@
     <div class="narrow">
       <div class="section-head reveal center"><span class="eyebrow">FAQ</span><h2>Questions</h2></div>
       <div class="faq reveal">
+        <details><summary>How do I compress a video on a Mac?</summary><p>Drop the video into Squeeze and press Compress, or right-click it in Finder and choose Squeeze → Compress. You get a much smaller MP4 next to the original, at the same resolution and frame rate.</p></details>
+        <details><summary>Is Squeeze a good HandBrake alternative?</summary><p>Squeeze uses HandBrake's own engine and default quality, so the results match. The difference is the interface: no presets or tabs of settings to learn, just one button, a queue and a Finder right-click menu. If you need HandBrake's advanced options, HandBrake itself is still the best tool.</p></details>
+        <details><summary>How do I convert MKV to MP4 on a Mac?</summary><p>Open the Convert tab, choose MP4 and turn on "Keep original codecs". Squeeze moves the video into an MP4 file without re-encoding, which usually takes a few seconds and loses no quality. You can also right-click the file and choose Squeeze → Change Container Only → MP4.</p></details>
+        <details><summary>Can I turn a video into a GIF?</summary><p>Yes. In the Convert tab choose GIF, pick a width and frame rate, and Squeeze makes a looping GIF with an optimised colour palette. Animated WebP is there too, for smaller files.</p></details>
         <details><summary>Is Squeeze really free?</summary><p>Yes. There's no trial, account or watermark.</p></details>
         <details><summary>How much smaller will my videos get?</summary><p>It depends on the source. Phone and camera footage often shrinks by 60–90%. Videos that are already heavily compressed shrink less. H.265 usually gives files about half the size of H.264 at the same quality.</p></details>
         <details><summary>Will it lower the quality?</summary><p>Compression always trades a little quality for size. Squeeze uses HandBrake's default quality level, which most people can't tell apart from the original at normal viewing sizes. It never changes the resolution or frame rate. For a perfect copy, convert with "Keep original codecs", which doesn't re-encode at all.</p></details>
@@ -289,7 +426,7 @@
   <section id="support" style="padding-top:0">
     <div class="wrap">
       <div class="cta-card reveal">
-        <video class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/img/squeeze-dunes.jpg" aria-hidden="true"><source src="assets/video/squeeze-dunes.mp4" type="video/mp4"></video>
+        <video class="bg-video" muted loop playsinline preload="none" data-lazy poster="assets/img/squeeze-dunes.jpg" aria-hidden="true"><source data-src="assets/video/squeeze-dunes.mp4" type="video/mp4"></video>
         <div>
           <span class="eyebrow">Free and open source</span>
           <h2>Give your footage some room to breathe.</h2>

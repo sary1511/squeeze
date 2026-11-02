@@ -80,16 +80,23 @@ window.SQUEEZE = {
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  // Background videos: honour reduced motion, and pause any that are off screen.
-  const videos = document.querySelectorAll("video[autoplay]");
+  // Background videos: the hero plays at once; the rest load only when they
+  // come near the screen. Off-screen videos pause. Reduced motion shows posters.
+  const videos = document.querySelectorAll("video.bg-video, video.bg");
+  const loadVideo = (v) => {
+    v.querySelectorAll("source[data-src]").forEach((s) => { s.src = s.dataset.src; s.removeAttribute("data-src"); });
+    if (v.hasAttribute("data-lazy")) { v.removeAttribute("data-lazy"); v.load(); }
+  };
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
     videos.forEach((v) => { v.removeAttribute("autoplay"); v.pause(); });
   } else if ("IntersectionObserver" in window) {
     const vio = new IntersectionObserver((entries) => entries.forEach((e) => {
       const v = e.target;
-      if (e.isIntersecting) { const p = v.play(); if (p) p.catch(() => {}); } else { v.pause(); }
-    }));
+      if (e.isIntersecting) { loadVideo(v); const p = v.play(); if (p) p.catch(() => {}); } else { v.pause(); }
+    }), { rootMargin: "200px 0px" });
     videos.forEach((v) => vio.observe(v));
+  } else {
+    videos.forEach((v) => { loadVideo(v); v.play().catch(() => {}); });
   }
 
   // Mobile menu.
